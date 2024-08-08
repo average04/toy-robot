@@ -65,10 +65,10 @@ public class CommandManager
     private void MoveCommand(Direction? direction)
     {
         if (direction == null) return;
-        if (direction == Direction.North && _position.Item1 < 5) _position.Item1++;
-        if (direction == Direction.East && _position.Item2 < 5) _position.Item2++;
-        if (direction == Direction.South && _position.Item2 > 0) _position.Item2--;
-        if (direction == Direction.West && _position.Item1 > 0) _position.Item1--;
+        if (direction == Direction.North && _position.Item1 < 5) _position.Item2++;
+        if (direction == Direction.East && _position.Item2 < 5) _position.Item1++;
+        if (direction == Direction.South && _position.Item2 > 0) _position.Item1--;
+        if (direction == Direction.West && _position.Item1 > 0) _position.Item2--;
     }
 
     private void LeftCommand(Direction? direction)
