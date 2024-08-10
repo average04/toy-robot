@@ -48,7 +48,6 @@ public class CommandManager
         if (ValidateLocation(location))
         {
             var chopLocation = location.Split(',');
-
             _position.Item1 = Convert.ToInt32(chopLocation[0]);
             _position.Item2 = Convert.ToInt32(chopLocation[1]);
             _direction = chopLocation[2] switch
@@ -65,8 +64,8 @@ public class CommandManager
     private void MoveCommand(Direction? direction)
     {
         if (direction == null) return;
-        if (direction == Direction.North && _position.Item1 < 5) _position.Item2++;
-        if (direction == Direction.East && _position.Item2 < 5) _position.Item1++;
+        if (direction == Direction.North && _position.Item1 < 4) _position.Item2++;
+        if (direction == Direction.East && _position.Item2 < 4) _position.Item1++;
         if (direction == Direction.South && _position.Item2 > 0) _position.Item1--;
         if (direction == Direction.West && _position.Item1 > 0) _position.Item2--;
     }
@@ -119,7 +118,7 @@ public class CommandManager
 
     private bool ValidateLocation(string location)
     {
-        string pattern = @"^\d+,\d+,(NORTH|SOUTH|EAST|WEST)$";
+        string pattern = @"^[1234],[1234],(NORTH|EAST|SOUTH|WEST)$";
         return Regex.IsMatch(location, pattern);
     }
 
